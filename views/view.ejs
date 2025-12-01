@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bear-Meetings</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+      /* --- CUTE BACKGROUND --- */
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        width: 100vw;
+        font-family: 'Open Sans', sans-serif;
+        
+        /* Soft pastel background */
+        background-color: #edf2f4;
+        
+        /* Cute Polka Dot Pattern */
+        background-image: radial-gradient(#8d99ae 2px, transparent 2px), radial-gradient(#8d99ae 2px, transparent 2px);
+        background-size: 32px 32px;
+        background-position: 0 0, 16px 16px;
+        
+        /* Flexbox to center everything */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+
+      /* --- CARD CONTAINER --- */
+      .container {
+        text-align: center;
+        background: rgba(255, 255, 255, 0.95); /* White box */
+        padding: 60px;
+        border-radius: 25px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      }
+
+      .text h1 {
+        color: #2b2d42;
+        font-size: 48px;
+        margin-bottom: 5px;
+        font-weight: 800;
+        margin-top: 0;
+      }
+      
+      .text h2 {
+        color: #ef233c; /* Cute Red */
+        font-size: 24px;
+        margin-top: 0;
+        margin-bottom: 40px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      /* --- BUTTONS --- */
+      .menu-btn {
+        display: block; /* Stack buttons vertically */
+        width: 250px;
+        margin: 15px auto;
+        text-decoration: none;
+        padding: 15px 0;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      }
+
+      .menu-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+      }
+
+      /* Button Colors */
+      .btn-start { 
+          background-color: #2b2d42; 
+          color: #fff; 
+          border: 2px solid #2b2d42;
+      }
+      
+      .btn-join { 
+          background-color: #fff; 
+          color: #2b2d42; 
+          border: 2px solid #2b2d42;
+      }
+      
+      .btn-schedule { 
+          background-color: #ef233c; 
+          color: #fff; 
+          border: 2px solid #ef233c;
+      }
+
+    </style>
+  </head>
+  <body>
+
+      <div class="container">
+        <div class="text">
+          <h1>Welcome</h1>
+          <h2>To Bear-Meetings 🐻</h2>
+          
+          <div>
+            <a href="/home" class="menu-btn btn-start">Start New Meeting</a>
+            <a onclick="joinbyId();" class="menu-btn btn-join">Join by ID</a>
+            <a href="/schedule-meet" class="menu-btn btn-schedule">Schedule Meeting</a>
+          </div>
+        </div>
+      </div>
+
+  </body>
+  <script>
+      function joinbyId(){
+        let foo = prompt('Enter Meeting ID to Join (example: abc-defg-hij)');
+        if(foo) {
+            // If they just type the ID without the slash, we add it
+            if(!foo.startsWith('/')) {
+                window.location.href = "/" + foo;
+            } else {
+                window.location.href = foo;
+            }
+        }
+      }
+  </script>
+</html>
